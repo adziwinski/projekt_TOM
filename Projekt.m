@@ -148,7 +148,7 @@ switch choice
         
         % rysowanie wykresu
         xx = 1:0.5:2;
-        yy = calc(AA,GG,xx);
+        yy = calc2(AA,GG,xx);
         
         figure;
         plot(xx, yy(1,:), xx, yy(2,:), xx, yy(3,:), FF(1,1), FF(2,1), 'ko')
