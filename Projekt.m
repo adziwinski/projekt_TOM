@@ -106,19 +106,14 @@ switch choice
         F2 = [1.5; 1.5];
         p = 0.8;
         blad2 = [0; 0];
-        k2 = 1;
-        ROZW2(k2,:) = F2;
-        blad2(k2,1) = G(1,1) - (A(1,:) * F2);
-        blad2(k2,2) = G(2,1) - (A(2,:) * F2);
-        k2=k2+1;
+        ROZW2(1,:) = F2;
         for i=1:1:10
             for j=1:1:size(F2,1)
                 f2_1 = F2(j,1) * (G(j,1) / (A(j,:) * F2)) ^ p;
                 blad2(i,j) = G(j,1) - (A(j,:) * F2);
                 F2(j,1) = f2_1;
             end
-            ROZW2(k2,:) = F2;
-            k2=k2+1;
+            ROZW2(i+1,:) = F2;
         end
         iteracje2 = 1:i;
        
