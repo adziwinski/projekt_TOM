@@ -13,16 +13,15 @@ F = A\G;
 FP = pinv(A)*G; % pseudoodwrotnoœæ
 
 x = 0.9:0.1:2;
-y2 = (-A(1,1)*x+G(1))/A(1,2);
-y1 = (-A(2,1)*x+G(2))/A(2,2);
 
+y = calc2(A,G,x);
         
 switch choice
     case 1
         % Rysowanie wykresu
 
         figure;
-        plot(x, y1, x, y2, F(1,1), F(2,1), 'ko')
+        plot(x, y(1,:), x, y(2,:), F(1,1), F(2,1), 'ko');       
         axis([0.9 2 0.9 2])
         grid on
         grid minor
@@ -58,8 +57,6 @@ switch choice
         windowSize = screenSize;
         windowSize(4) = windowHigh * 0.9;
         figure('Name','Algorytm Additive ART','pos',windowSize);
-        
-
 
         subplot(1,2,1)
          plot(x, y1,'b');
@@ -79,6 +76,7 @@ switch choice
          ylabel('y')
          grid on
          grid minor
+         
         subplot(1,2,2)
          semilogy(iteracje, abs(blad1(:,1)), 'x-.');
          axis('square')
@@ -141,21 +139,19 @@ switch choice
 % x i y, a MART wykonuje najpierw x a w nastêpnym kroku dopiero y
 
 % Jak zrobiæ 2 równania i 3 niewiadome??
-% Jaki jest z??
+% Jaki jest z??h
 %% 3 równania 2 niewiadome
     case 4
         AA = [5.05 0.5; 0.1 1; 2 1];
         GG = [8.8421; 1.9721; 4.3452];
         FF = AA\GG; % równanie jest sprzeczne. FF to rozwi¹zanie œredniokwadratowe
-
+        
         % rysowanie wykresu
-        xx = 1:0.01:2;
-        yy1 = (-(AA(1,1))*xx+GG(1,1))/AA(1,2);
-        yy2 = (-(AA(2,1))*xx+GG(2,1))/AA(2,2);
-        yy3 = (-(AA(3,1))*xx+GG(3,1))/AA(3,2);
-
+        xx = 1:0.5:2;
+        yy = calc(AA,GG,xx);
+        
         figure;
-        plot(xx, yy1, xx, yy2, xx, yy3, FF(1,1), FF(2,1), 'ko')
+        plot(xx, yy(1,:), xx, yy(2,:), xx, yy(3,:), FF(1,1), FF(2,1), 'ko')
         grid on
         grid minor
 
@@ -172,9 +168,9 @@ switch choice
         yyy1 = ((-(AAA(1,1))*xxx) + (-(AAA(1,3))*xxx) + GGG(1,1)) / AAA(1,2);
         yyy2 = ((-(AAA(2,1))*xxx) + (-(AAA(2,3))*xxx) + GGG(2,1)) / AAA(2,2);
 
-%         figure; 
+        figure; 
 %         mesh(xxx, yyy1, zzz)
-%         mesh(xxx, yyy1, z??, xxx, yyy2, z??, FFF(1,1), FFF(2,1), FFF(3,1), 'ko')
+%          mesh(xxx, yyy1, z??, xxx, yyy2, z??, FFF(1,1), FFF(2,1), FFF(3,1), 'ko')
 %         grid on
 %         grid minor
 
