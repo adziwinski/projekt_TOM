@@ -5,12 +5,12 @@ close all
 choice=menu({'Welcome!';' Please select your solution'},'2 equation, 2 unknown', 'Additive ART','Multiadditive ART', ...
 ' 3 equation, 2 unknown', '2 equation, 3 unknown');
 
-% 2 rÃ³wnania 2 niewiadome
+% 2 równania 2 niewiadome
 
 A = [ 5.05 0.5; 0.1 1];
 G = [8.5; 2];
 F = A\G;
-FP = pinv(A)*G; % pseudoodwrotnoÅ›Ä‡
+FP = pinv(A)*G; % pseudoodwrotnoœæ
 
 x = 0.9:0.1:2;
 y2 = (-A(1,1)*x+G(1))/A(1,2);
@@ -72,8 +72,8 @@ switch choice
          set(0, 'defaultTextFontSize',10);
          text(0.9,0.65,'Punkt startowy (1, 1)')
          T = {'Ortogonalne rzutowanie punktu na proste'; 
-         'odpowiadajÄ…ce dwÃ³m rÃ³wnaniom';
-         'ukÅ‚adu z dwiema niewiadomymi'};
+         'odpowiadaj¹ce dwóm równaniom';
+         'uk³adu z dwiema niewiadomymi'};
          title(T)
          xlabel('x')
          ylabel('y')
@@ -82,16 +82,16 @@ switch choice
         subplot(1,2,2)
          semilogy(iteracje, abs(blad1(:,1)), 'x-.');
          axis('square')
-         title('BÅ‚Ä…d oszacowania i-tej iteracji');
+         title('B³¹d oszacowania i-tej iteracji');
          xlabel('i')
-         ylabel('bÅ‚Ä…d')
+         ylabel('b³¹d')
          grid on
          grid minor
          
          hold on;
          semilogy(iteracje, abs(blad1(:,2)), 'rx-.');
          hold off;
-         legend('rÃ³wnanie nr 1','rÃ³wnanie nr 2');
+         legend('równanie nr 1','równanie nr 2');
          
          text(-0.2,1.2, 'Algorytm additive ART', 'HorizontalAlignment', 'center',...
             'FontSize', 16 , 'Units', 'normalized');
@@ -136,17 +136,17 @@ switch choice
         grid minor
 
 %% Pytania:
-% Czy ja te rozwiÄ…zania w dobrym miejscu wpisujÄ™ do puli rozwiÄ…zaÅ„?
-% Wydaje mi siÄ™, Å¼e dobrze, bo pierwsza AA ART wykonuje od razu zmianÄ™ 
-% x i y, a MART wykonuje najpierw x a w nastÄ™pnym kroku dopiero y
+% Czy ja te rozwi¹zania w dobrym miejscu wpisujê do puli rozwi¹zañ?
+% Wydaje mi siê, ¿e dobrze, bo pierwsza AA ART wykonuje od razu zmianê 
+% x i y, a MART wykonuje najpierw x a w nastêpnym kroku dopiero y
 
-% Jak zrobiÄ‡ 2 rÃ³wnania i 3 niewiadome??
+% Jak zrobiæ 2 równania i 3 niewiadome??
 % Jaki jest z??
-%% 3 rÃ³wnania 2 niewiadome
+%% 3 równania 2 niewiadome
     case 4
         AA = [5.05 0.5; 0.1 1; 2 1];
         GG = [8.8421; 1.9721; 4.3452];
-        FF = AA\GG; % rÃ³wnanie jest sprzeczne. FF to rozwiÄ…zanie Å›redniokwadratowe
+        FF = AA\GG; % równanie jest sprzeczne. FF to rozwi¹zanie œredniokwadratowe
 
         % rysowanie wykresu
         xx = 1:0.01:2;
@@ -159,9 +159,9 @@ switch choice
         grid on
         grid minor
 
-%% 2 rÃ³wnania 3 niewiadome
+%% 2 równania 3 niewiadome
     case 5
-        %AAA = [5.05 0.5 1; 0.1 1 2]; %wychodzi Åºle
+        %AAA = [5.05 0.5 1; 0.1 1 2]; %wychodzi Ÿle
         AAA = [5.05 0.5 2; 0.1 1 1]; %wychodzi dobrze
         GGG = [8.5; 2];
         FFF = AAA\GGG;
