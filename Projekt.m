@@ -5,12 +5,12 @@ close all
 choice=menu({'Welcome!';' Please select your solution'},'2 equation, 2 unknown', 'Additive ART','Multiadditive ART', ...
 ' 3 equation, 2 unknown', '2 equation, 3 unknown');
 
-% 2 równania 2 niewiadome
+% 2 rÃ³wnania 2 niewiadome
 
 A = [ 5.05 0.5; 0.1 1];
 G = [8.5; 2];
 F = A\G;
-FP = pinv(A)*G; % pseudoodwrotnoœæ
+FP = pinv(A)*G; % pseudoodwrotnoÅ›Ä‡
 
 x = 0.9:0.1:2;
 y2 = (-A(1,1)*x+G(1))/A(1,2);
@@ -58,15 +58,22 @@ switch choice
         windowSize = screenSize;
         windowSize(4) = windowHigh * 0.9;
         figure('Name','Algorytm Additive ART','pos',windowSize);
+        
+
+
         subplot(1,2,1)
-         plot(x, y1, x, y2, ROZW1(:,1),ROZW1(:,2), 'ko--')
+         plot(x, y1,'b');
+         hold on;
+         plot(x, y2, 'r');
+         plot(ROZW1(:,1),ROZW1(:,2), 'ko--');
+         hold off;
          axis('square')
          axis([0.9 2 0.9 2])
          set(0, 'defaultTextFontSize',10);
          text(0.9,0.65,'Punkt startowy (1, 1)')
          T = {'Ortogonalne rzutowanie punktu na proste'; 
-         'odpowiadaj¹ce dwóm równaniom';
-         'uk³adu z dwiema niewiadomymi'};
+         'odpowiadajÄ…ce dwÃ³m rÃ³wnaniom';
+         'ukÅ‚adu z dwiema niewiadomymi'};
          title(T)
          xlabel('x')
          ylabel('y')
@@ -75,29 +82,20 @@ switch choice
         subplot(1,2,2)
          semilogy(iteracje, abs(blad1(:,1)), 'x-.');
          axis('square')
-%          axis([1 (l1-1) -1 (l1-3)])
-         title('B³¹d oszacowania i-tej iteracji');
-         set(0, 'defaultTextFontSize',16);
-         text(1.5,5,'Algorytm additive ART')
+         title('BÅ‚Ä…d oszacowania i-tej iteracji');
          xlabel('i')
-         ylabel('b³¹d')
+         ylabel('bÅ‚Ä…d')
          grid on
          grid minor
          
          hold on;
          semilogy(iteracje, abs(blad1(:,2)), 'rx-.');
          hold off;
-         legend('równanie nr 1','równanie nr 2');
-%         subplot(1,3,3)
-% 
-%          axis('square')
-%          axis([1 (l1-1) -1 (l1-3)])
-%          T = {'B³¹d oszacowania i-tej iteracji'};
-%          title(T)
-%          xlabel('iteracje')
-%          ylabel('b³¹d')
-%          grid on
-%          grid minor
+         legend('rÃ³wnanie nr 1','rÃ³wnanie nr 2');
+         
+         text(-0.2,1.2, 'Algorytm additive ART', 'HorizontalAlignment', 'center',...
+            'FontSize', 16 , 'Units', 'normalized');
+        
         % subplot(2,3,4)
         %  z = zeros(1,size(x,2));
         %  zet = zeros(size(ROZW1,1),1);
@@ -138,17 +136,17 @@ switch choice
         grid minor
 
 %% Pytania:
-% Czy ja te rozwi¹zania w dobrym miejscu wpisujê do puli rozwi¹zañ?
-% Wydaje mi siê, ¿e dobrze, bo pierwsza AA ART wykonuje od razu zmianê 
-% x i y, a MART wykonuje najpierw x a w nastêpnym kroku dopiero y
+% Czy ja te rozwiÄ…zania w dobrym miejscu wpisujÄ™ do puli rozwiÄ…zaÅ„?
+% Wydaje mi siÄ™, Å¼e dobrze, bo pierwsza AA ART wykonuje od razu zmianÄ™ 
+% x i y, a MART wykonuje najpierw x a w nastÄ™pnym kroku dopiero y
 
-% Jak zrobiæ 2 równania i 3 niewiadome??
+% Jak zrobiÄ‡ 2 rÃ³wnania i 3 niewiadome??
 % Jaki jest z??
-%% 3 równania 2 niewiadome
+%% 3 rÃ³wnania 2 niewiadome
     case 4
         AA = [5.05 0.5; 0.1 1; 2 1];
         GG = [8.8421; 1.9721; 4.3452];
-        FF = AA\GG; % równanie jest sprzeczne. FF to rozwi¹zanie œredniokwadratowe
+        FF = AA\GG; % rÃ³wnanie jest sprzeczne. FF to rozwiÄ…zanie Å›redniokwadratowe
 
         % rysowanie wykresu
         xx = 1:0.01:2;
@@ -161,9 +159,9 @@ switch choice
         grid on
         grid minor
 
-%% 2 równania 3 niewiadome
+%% 2 rÃ³wnania 3 niewiadome
     case 5
-        %AAA = [5.05 0.5 1; 0.1 1 2]; %wychodzi Ÿle
+        %AAA = [5.05 0.5 1; 0.1 1 2]; %wychodzi Åºle
         AAA = [5.05 0.5 2; 0.1 1 1]; %wychodzi dobrze
         GGG = [8.5; 2];
         FFF = AAA\GGG;
