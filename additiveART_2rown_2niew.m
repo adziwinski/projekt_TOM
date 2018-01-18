@@ -1,26 +1,8 @@
 function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
 
     y = calc2(A,G,x);
-    F1 = [1; 1];
-    lambda = 1;
-    error = 1;
-    i=1;
-    rozwiazanie(1,:) = F1;
-    blad = [0; 0];
     
-    while error>errorSize
-        for j=1:1:size(F1,1)
-            f1_1 = F1 + (lambda * ((G(j,:) - (A(j,:)) * F1) / (A(j,:) * A(j,:)')) * A(j,:)');
-            blad(i,j) = G(j) - (A(j,:) * F1);
-            F1 = f1_1;
-            rozwiazanie(i+1,:) = F1;
-            error = blad(i,j);          
-        end
-        i=i+1;
-%            liczbaIteracji(j) = i;
-    end
-    iteracje = 1:i-1;
-
+    [rozwiazanie,blad,iteracje] = calculateAA22( A,G,errorSize );
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -44,26 +26,22 @@ function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
      title(T)
      xlabel('x')
      ylabel('y')
-     grid on
      grid minor
      text(1,1,'  Punkt startowy (1, 1)','HorizontalAlignment', 'left');
      
     subplot(1,2,2)
-%      semilogy(iteracje(:,1), abs(blad1(:,1)), 'x-.');
     semilogy(iteracje, abs(blad(:,1)), 'x-.');
      axis('square')
      title('B³¹d oszacowania i-tej iteracji');
      xlabel('i')
      ylabel('b³¹d')
-     grid on
      grid minor
 
      hold on;
-%      semilogy(iteracje(:,2), abs(blad1(:,2)), 'rx-.');
-      semilogy(iteracje, abs(blad(:,2)), 'rx-.');
-
-     hold off;
+     semilogy(iteracje, abs(blad(:,2)), 'rx-.');
      legend('równanie nr 1','równanie nr 2');
+     hold off;
+
 
      text(-0.2,1.2, 'Algorytm additive ART', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');
