@@ -17,7 +17,7 @@ switch choice1
         
         switch choice2
             case 1 % additive ART
-                additiveART_2rown_2niew( A,G,F,x,10^(-5));
+                additiveART_2rown_2niew( A,G,F,x,10^(-9));
             case 2 % multiadditiveART
                 multiplicativeART_2rown_2niew(A,G,F,x);    
         end
