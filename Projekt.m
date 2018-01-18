@@ -44,16 +44,12 @@ switch choice1
         F = A\G;
 
         % rysowanie wykresu
-        x = 1:0.01:2;
+        x = 1:0.5:2;
         z = zeros(size(x));
         y = calc3d(A,G,x);
+        Z = 1:0.5:2;
+        plotPlanes(x,y,'Normal',Z, 'ColorMap', 'summer');
 
-        figure; 
-        plot3(x, y(1,:), z);
-        hold on;
-        plot3(x, y(2,:), z);
-        hold off;
-%         mesh(xxx, yyy1, z??, xxx, yyy2, z??, FFF(1,1), FFF(2,1), FFF(3,1), 'ko')
         grid on
         grid minor
 end
