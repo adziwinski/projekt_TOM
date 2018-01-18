@@ -17,9 +17,9 @@ switch choice1
         
         switch choice2
             case 1 % additive ART
-                additiveART( A,G,F,x )
+                additiveART_2rown_2niew( A,G,F,x,10^(-5));
             case 2 % multiadditiveART
-                multiadditiveART(A,G,F,x);    
+                multiplicativeART_2rown_2niew(A,G,F,x);    
         end
         
     case 2 %trzy równania, dwie niewiadome
