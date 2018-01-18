@@ -28,18 +28,13 @@ function [ ] = multiplicativeART_2rown_2niew(A,G,F,x, errorSize)
      grid minor
 
     subplot(1,2,2)
-     semilogy(iteracje, abs(blad(:,1)), 'x-.');
+     semilogy(iteracje, abs(blad), 'x-.');
      axis('square')
      title('B³¹d oszacowania i-tej iteracji');
      xlabel('i')
      ylabel('b³¹d')
      grid on
      grid minor
-
-     hold on;
-     semilogy(iteracje, abs(blad(:,2)), 'rx-.');
-     hold off;
-     legend('równanie nr 1','równanie nr 2');
 
      text(-0.2,1.2, 'Algorytm multiplicative ART', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');

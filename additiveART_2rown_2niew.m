@@ -30,17 +30,12 @@ function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
      text(1,1,'  Punkt startowy (1, 1)','HorizontalAlignment', 'left');
      
     subplot(1,2,2)
-    semilogy(iteracje, abs(blad(:,1)), 'x-.');
+    semilogy(iteracje, abs(blad), 'x-.');
      axis('square')
      title('B³¹d oszacowania i-tej iteracji');
      xlabel('i')
      ylabel('b³¹d')
      grid minor
-
-     hold on;
-     semilogy(iteracje, abs(blad(:,2)), 'rx-.');
-     legend('równanie nr 1','równanie nr 2');
-     hold off;
 
 
      text(-0.2,1.2, 'Algorytm additive ART', 'HorizontalAlignment', 'center',...
