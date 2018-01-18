@@ -1,22 +1,27 @@
-function [ ] = multiplicativeART_2rown_2niew(A,G,F,x)
+function [ ] = multiplicativeART_2rown_2niew(A,G,F,x, errorSize)
 %UNTITLED3 Summary of this function goes hereinput_args
 %   Detailed explanation goes here
 y = calc2(A,G,x);
 
 
-        F2 = [1.5; 1.5];
+        F1 = [1.5; 1.5];
         p = 0.8;
-        blad2 = [0; 0];
-        ROZW2(1,:) = F2;
-        for i=1:1:10
-            for j=1:1:size(F2,1)
-                f2_1 = F2(j,1) * (G(j,1) / (A(j,:) * F2)) ^ p;
-                blad2(i,j) = G(j,1) - (A(j,:) * F2);
-                F2(j,1) = f2_1;
+        blad = [0; 0];
+        rozwiazanie(1,:) = F1;
+        
+        error = 1;
+        i=1;
+        while error>errorSize
+            for j=1:1:size(F1,1)
+                f2_1 = F1(j,1) * (G(j,1) / (A(j,:) * F1)) ^ p;
+                blad(i,j) = G(j,1) - (A(j,:) * F1);
+                F1(j,1) = f2_1;
             end
-            ROZW2(i+1,:) = F2;
+            error = blad(i,j);    
+            rozwiazanie(i+1,:) = F1;
+            i=i+1;
         end
-        iteracje2 = 1:i;
+        iteracje = 1:i-1;
        
         % Rysowanie wykresu
         screenSize = get(groot,'ScreenSize');
@@ -29,13 +34,13 @@ y = calc2(A,G,x);
          plot(x, y(1,:),'b');
          hold on;
          plot(x, y(2,:), 'r');
-         plot(ROZW2(:,1),ROZW2(:,2), 'ko--');
+         plot(rozwiazanie(:,1),rozwiazanie(:,2), 'ko--');
          hold off;
          axis('square')
          axis([0.9 2 0.9 2])
          set(0, 'defaultTextFontSize',10);
          text(1.5,1.5,'Punkt startowy (1,5, 1,5)  ','HorizontalAlignment', 'right')
-         T = {'Zabaczymy jaki tytul '};
+         T = {'Interpretacja graficzna'};
          title(T)
          xlabel('x')
          ylabel('y')
@@ -43,7 +48,7 @@ y = calc2(A,G,x);
          grid minor
          
         subplot(1,2,2)
-         semilogy(iteracje2, abs(blad2(:,1)), 'x-.');
+         semilogy(iteracje, abs(blad(:,1)), 'x-.');
          axis('square')
          title('B³¹d oszacowania i-tej iteracji');
          xlabel('i')
@@ -52,7 +57,7 @@ y = calc2(A,G,x);
          grid minor
          
          hold on;
-         semilogy(iteracje2, abs(blad2(:,2)), 'rx-.');
+         semilogy(iteracje, abs(blad(:,2)), 'rx-.');
          hold off;
          legend('równanie nr 1','równanie nr 2');
          

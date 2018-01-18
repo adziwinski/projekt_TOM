@@ -1,8 +1,8 @@
 clc
 clear all
 close all
-choice1=menu({' Wybierz uk³ad równañ, który chcesz rozwi¹zaæ'}, 'Dwa równania, dwie niewiadome','trzy równania, dwie niewiadome', 'dwa równania, trzy niewiadome');
-choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Additive ART','Multiadditive ART');
+choice1=menu({' Wybierz uk³ad równañ, który chcesz rozwi¹zaæ'}, 'Dwa równania, dwie niewiadome','Trzy równania, dwie niewiadome', 'Dwa równania, trzy niewiadome');
+choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Additive ART','Multiplicative ART ART');
 
 % 2 równania 2 niewiadome
 
@@ -19,7 +19,7 @@ switch choice1
             case 1 % additive ART
                 additiveART_2rown_2niew( A,G,F,x,10^(-9));
             case 2 % multiadditiveART
-                multiplicativeART_2rown_2niew(A,G,F,x);    
+                multiplicativeART_2rown_2niew(A,G,F,x,10^-9);    
         end
         
     case 2 %trzy równania, dwie niewiadome
@@ -36,18 +36,18 @@ end
 % Jaki jest z??h
 %% 3 równania 2 niewiadome
 
-        AA = [5.05 0.5; 0.1 1; 2 1];
-        GG = [8.8421; 1.9721; 4.3452];
-        FF = AA\GG; % równanie jest sprzeczne. FF to rozwi¹zanie œredniokwadratowe
-        
-        % rysowanie wykresu
-        xx = 1:0.5:2;
-        yy = calc2(AA,GG,xx);
-        
-        figure;
-        plot(xx, yy(1,:), xx, yy(2,:), xx, yy(3,:), FF(1,1), FF(2,1), 'ko')
-        grid on
-        grid minor
+%         AA = [5.05 0.5; 0.1 1; 2 1];
+%         GG = [8.8421; 1.9721; 4.3452];
+%         FF = AA\GG; % równanie jest sprzeczne. FF to rozwi¹zanie œredniokwadratowe
+%         
+%         % rysowanie wykresu
+%         xx = 1:0.5:2;
+%         yy = calc2(AA,GG,xx);
+%         
+%         figure;
+%         plot(xx, yy(1,:), xx, yy(2,:), xx, yy(3,:), FF(1,1), FF(2,1), 'ko')
+%         grid on
+%         grid minor
 % 
 % %% 2 równania 3 niewiadome
 % 

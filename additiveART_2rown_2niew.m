@@ -3,17 +3,18 @@ function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
     y = calc2(A,G,x);
     F1 = [1; 1];
     lambda = 1;
-    blad = 1;
+    error = 1;
     i=1;
-    ROZW1(1,:) = F1;
-
-    while blad>errorSize
+    rozwiazanie(1,:) = F1;
+    blad = [0; 0];
+    
+    while error>errorSize
         for j=1:1:size(F1,1)
             f1_1 = F1 + (lambda * ((G(j,:) - (A(j,:)) * F1) / (A(j,:) * A(j,:)')) * A(j,:)');
-            blad1(i,j) = G(j) - (A(j,:) * F1);
+            blad(i,j) = G(j) - (A(j,:) * F1);
             F1 = f1_1;
-            ROZW1(i+1,:) = F1;
-            blad = blad1(i,j);          
+            rozwiazanie(i+1,:) = F1;
+            error = blad(i,j);          
         end
         i=i+1;
 %            liczbaIteracji(j) = i;
@@ -31,7 +32,7 @@ function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
      plot(x, y(1,:),'b');
      hold on;
      plot(x, y(2,:), 'r');
-     plot(ROZW1(:,1),ROZW1(:,2), 'ko--');
+     plot(rozwiazanie(:,1),rozwiazanie(:,2), 'ko--');
      hold off;
      axis('square')
      axis([0.9 2 0.9 2])
@@ -49,7 +50,7 @@ function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
      
     subplot(1,2,2)
 %      semilogy(iteracje(:,1), abs(blad1(:,1)), 'x-.');
-    semilogy(iteracje, abs(blad1(:,1)), 'x-.');
+    semilogy(iteracje, abs(blad(:,1)), 'x-.');
      axis('square')
      title('B³¹d oszacowania i-tej iteracji');
      xlabel('i')
@@ -59,7 +60,7 @@ function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
 
      hold on;
 %      semilogy(iteracje(:,2), abs(blad1(:,2)), 'rx-.');
-      semilogy(iteracje, abs(blad1(:,2)), 'rx-.');
+      semilogy(iteracje, abs(blad(:,2)), 'rx-.');
 
      hold off;
      legend('równanie nr 1','równanie nr 2');
