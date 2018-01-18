@@ -14,7 +14,7 @@ function [ ] = compare22( A,G,F,x, errorSize )
      hold on;
      plot(x, y(2,:), 'r');
      plot(rozwiazanieAA(:,1),rozwiazanieAA(:,2), 'ko--');
-     plot(rozwiazanieMA(:,1),rozwiazanieMA(:,2), 'ko--');
+     plot(rozwiazanieMA(:,1),rozwiazanieMA(:,2), 'go--');
      hold off;
      axis('square')
      axis([0.9 2 0.9 2])
@@ -28,18 +28,16 @@ function [ ] = compare22( A,G,F,x, errorSize )
      grid minor;
 
     subplot(1,2,2)
-     semilogy(iteracjeAA, abs(bladAA(:,1)), 'x-.');
+     semilogy(iteracjeAA, abs(bladAA), 'x-.');
      hold on;
-     semilogy(iteracjeAA, abs(bladAA(:,2)), 'x-.');
-     semilogy(iteracjeMA, abs(bladMA(:,2)), 'x-.');
-     semilogy(iteracjeMA, abs(bladMA(:,1)), 'x-.');
+     semilogy(iteracjeMA, abs(bladMA), 'x-.');
      hold off;
      axis('square');
      title('B³¹d oszacowania i-tej iteracji');
      xlabel('i');
      ylabel('b³¹d');
      grid minor;
-     legend('Additive ART równanie nr 1','Additive ART równanie nr 2','Multiplicative ART równanie nr 1','Multiplicative ART równanie nr 2');
+     legend('Additive ART','Multiplicative ART');
 
      text(-0.2,1.2, 'Porównanie metod', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized')
