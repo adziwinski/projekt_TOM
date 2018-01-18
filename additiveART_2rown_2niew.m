@@ -26,21 +26,16 @@ function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
 %     iteracje(1,:) = 1:liczbaIteracji(1);
 %     iteracje(2,:) = 1:liczbaIteracji(2);
 
-        k1 = 1;
-        l1 = 1;
-        ROZW1(k1,:) = F1;
-        k1=k1+1;
+        ROZW1(1,:) = F1;
         for i=1:1:5
             for j=1:1:size(F1,1)
                 f1_1 = F1 + (lambda * ((G(j) - (A(j,:)) * F1) / (A(j,:) * A(j,:)')) * A(j,:)');
-                blad1(l1,j) = G(j) - (A(j,:) * F1);
+                blad1(i,j) = G(j) - (A(j,:) * F1);
                 F1 = f1_1;
-                ROZW1(k1,:) = F1;
-                k1=k1+1;
+                ROZW1(i,:) = F1;
            end
-            l1=l1+1;
         end
-iteracje = 1:(l1-1);
+iteracje = 1:i;
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
