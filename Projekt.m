@@ -12,8 +12,7 @@ while(1)
             A = [ 5.05 0.5; 0.1 1];
             G = [8.5; 2];
             F = A\G;
-            FP = pinv(A)*G; 
-
+            %FP = pinv(A)*G; 
             x = 0.9:0.1:2;
             choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');
             switch choice2

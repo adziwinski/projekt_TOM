@@ -1,7 +1,9 @@
 function [ ] = compare22( A,G,F,x, errorSize )
     y = calc2(A,G,x);
-    [ rozwiazanieAA,bladAA,iteracjeAA ] = calculateMA22( A,G, errorSize);
-    [ rozwiazanieMA,bladMA,iteracjeMA ] = calculateAA22( A,G, errorSize);
+    FP = pinv(A)*G; 
+    
+    [ rozwiazanieAA,bladAA,iteracjeAA ] = calculateAA22( A,G, errorSize);
+    [ rozwiazanieMA,bladMA,iteracjeMA ] = calculateMA22( A,G, errorSize);
     
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -15,6 +17,8 @@ function [ ] = compare22( A,G,F,x, errorSize )
      plot(x, y(2,:), 'r');
      plot(rozwiazanieAA(:,1),rozwiazanieAA(:,2), 'ko--');
      plot(rozwiazanieMA(:,1),rozwiazanieMA(:,2), 'go--');
+     plot(F(1,1), F(2,1),'r*');
+     plot(FP(1,1), FP(2,1),'co');
      hold off;
      axis('square')
      axis([0.9 2 0.9 2])
@@ -26,6 +30,7 @@ function [ ] = compare22( A,G,F,x, errorSize )
      xlabel('x')
      ylabel('y')
      grid minor;
+     legend('równanie nr 1', 'rónanie nr 2', 'Additive ART','Multiplicative ART', 'Pseudoodwrotnoœæ', 'Lewe dzielenie');
 
     subplot(1,2,2)
      semilogy(iteracjeAA, abs(bladAA), 'x-.');

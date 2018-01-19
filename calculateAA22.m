@@ -1,4 +1,5 @@
-function [rozwiazanie,bald,iteracje] = calculateAA22( A,G,errorSize )
+
+function [rozwiazanie,blad,iteracje] = calculateAA22( A,G,errorSize )
 
     F1 = [1; 1];
     lambda = 1;
@@ -16,10 +17,9 @@ function [rozwiazanie,bald,iteracje] = calculateAA22( A,G,errorSize )
             error = tempBlad(i,j);          
         end
         i=i+1;
-%            liczbaIteracji(j) = i;
     end
     iteracje = 1:i-1;
-    bald = sqrt((tempBlad(:,1)).^2+ (tempBlad(:,2)).^2);
+    blad = sqrt((tempBlad(:,1)).^2+ (tempBlad(:,2)).^2);
+
 
 end
-
