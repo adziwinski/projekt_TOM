@@ -22,7 +22,7 @@ switch choice1
                 grid minor
                 title('Pseudoodwrotnoœæ');
                 set(0, 'defaultTextFontSize',10);
-                text(FP(1), FP(2), 'wynik (' )
+                text(FP(1), FP(2), 'wynik  ', 'HorizontalAlignment', 'right');
                 xlabel('x');
                 ylabel('y');
             case 2 % additive ART

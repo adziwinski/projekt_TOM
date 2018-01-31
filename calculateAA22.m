@@ -1,6 +1,6 @@
 function [rozwiazanie,blad,iteracje] = calculateAA22( A,G,errorSize )
 
-    F1 = [1; 1];
+    F1 = [1.5; 1.5];
     lambda = 1;
     %error = 1;
     i=1;

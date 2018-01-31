@@ -17,7 +17,7 @@ function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
      plot(rozwiazanie(:,1),rozwiazanie(:,2), 'ko--');
      hold off;
      axis('square')
-     axis([0.9 2 0.9 2])
+     axis([1.2 1.9 1.4 2.1 ])
      set(0, 'defaultTextFontSize',10);
      text(0.9,0.65,'Punkt startowy (1, 1)')
      T = {'Ortogonalne rzutowanie punktu na proste'; 
@@ -27,7 +27,7 @@ function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
      xlabel('x')
      ylabel('y')
      grid minor
-     text(1,1,'  Punkt startowy (1, 1)','HorizontalAlignment', 'left');
+     text(1.5,1.5,'Punkt startowy (1,5, 1,5)  ','HorizontalAlignment', 'right')
      
     subplot(1,2,2)
     semilogy(iteracje, abs(blad(:)), 'x-.');
@@ -57,9 +57,9 @@ function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
      plot(rozwiazanie(:,1),rozwiazanie(:,2), 'ko--');
      hold off;
      axis('square')
-     axis([0.9 2 0.9 2])
+     axis([1.2 1.9 1.4 2.1 ])
      set(0, 'defaultTextFontSize',10);
-     text(0.9,0.65,'Punkt startowy (1, 1)')
+     text(1.5,1.5,'Punkt startowy (1,5, 1,5)  ','HorizontalAlignment', 'right')
      T = {'Ortogonalne rzutowanie punktu na proste'; 
      'odpowiadaj¹ce dwóm równaniom';
      'uk³adu z dwiema niewiadomymi'};

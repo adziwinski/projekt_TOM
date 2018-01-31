@@ -1,8 +1,8 @@
-function [ rozwiazanie,blad,iteracje ] = calculateMA22( A,G, errorSize)
+function [ rozwiazanie,blad,iteracje ] = lambdaMA22( A,G, errorSize)
 %UNTITLED10 Summary of this function goes here
 %   Detailed explanation goes here
     F1 = [1.5; 1.5];
-    p = 1;
+    p = 1.5;
     k=1;
     tempBlad = G - (A * F1);
     blad(1) = sqrt((tempBlad(1)).^2 + (tempBlad(2)).^2);
@@ -17,6 +17,8 @@ function [ rozwiazanie,blad,iteracje ] = calculateMA22( A,G, errorSize)
         rozwiazanie(k,:) = F1;
         blad(k) = sqrt((tempBlad(1)).^2+ (tempBlad(2)).^2);
         k=k+1;
+        
+        p = p/1.1;
     end
     iteracje = 1:k-1;
     iteracje = iteracje -1;
