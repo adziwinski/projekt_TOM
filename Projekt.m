@@ -5,7 +5,7 @@ close all
 while(1)
     choice1=menu({' Wybierz uk³ad równañ, który chcesz rozwi¹zaæ'}, ...
     'Dwa równania, dwie niewiadome','Trzy równania, dwie niewiadome', ...
-    'Dwa równania, trzy niewiadome', 'Zakoñcz');
+    'Dwa równania,gir push  trzy niewiadome', 'Zakoñcz');
     switch choice1
         case 1 %Dwa równania, dwie niewiadome
             A = [ 5.05 0.5; 0.1 1];
