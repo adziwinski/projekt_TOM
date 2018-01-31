@@ -3,7 +3,7 @@ clear all
 close all
 
 while(1)
-choice1=menu({' Wybierz uk³ad równañ, który chcesz rozwi¹zaæ'}, ...
+    choice1=menu({' Wybierz uk³ad równañ, który chcesz rozwi¹zaæ'}, ...
     'Dwa równania, dwie niewiadome','Trzy równania, dwie niewiadome', ...
     'Dwa równania, trzy niewiadome', 'Zakoñcz');
     switch choice1
@@ -12,9 +12,9 @@ choice1=menu({' Wybierz uk³ad równañ, który chcesz rozwi¹zaæ'}, ...
             G = [8.5; 2];
             F = A\G;
             FP = pinv(A)*G; 
-
             x = 0.9:0.1:2;
- choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');            switch choice2
+            choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');            
+            switch choice2
                 case 1
                     figure; % pseudoodwrotnoœæ
                     y = calc2(A,G,x);
@@ -24,7 +24,7 @@ choice1=menu({' Wybierz uk³ad równañ, który chcesz rozwi¹zaæ'}, ...
                     grid minor
                     title('Pseudoodwrotnoœæ');
                     set(0, 'defaultTextFontSize',10);
-                    text(FP(1), FP(2), 'wynik (' )
+                    text(FP(1), FP(2), 'wynik  ', 'HorizontalAlignment', 'right');
                     xlabel('x');
                     ylabel('y');
                 case 2 % additive ART
@@ -36,6 +36,7 @@ choice1=menu({' Wybierz uk³ad równañ, który chcesz rozwi¹zaæ'}, ...
                 case 5
                     break;
             end
+
 
         case 2 %trzy równania, dwie niewiadome
             clear all;
