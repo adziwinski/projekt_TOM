@@ -16,8 +16,10 @@ function [rozwiazanie,blad,iteracje] = calculateAA22( A,G,errorSize )
             rozwiazanie(k,:) = F1;
             error = tempBlad(k,j);
             k=k+1;
+            
         end
     end
+    tempBlad(k,j-1) = G(j-1) - (A(j-1,:) * F1);
     iteracje = 1:k-1;
     blad = sqrt((tempBlad(:,1)).^2+ (tempBlad(:,2)).^2);
 end
