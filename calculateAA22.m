@@ -1,4 +1,3 @@
-
 function [rozwiazanie,blad,iteracje] = calculateAA22( A,G,errorSize )
 
     F1 = [1; 1];
