@@ -86,5 +86,3 @@ switch choice1
         zlabel('z');
        
 end
-    
-
