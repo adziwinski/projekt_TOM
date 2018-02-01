@@ -29,6 +29,7 @@ function [ ] = additiveART_3rown_2niew( A,G,F,x,errorSize)
      title(T)
      xlabel('x')
      ylabel('y')
+     legend('równanie 1', 'równanie 2', 'równanie 3', '\lambda = const', '\lambda zmniejszana w ka¿dej iteracji','Location' , 'southwest')
      grid minor
      text(1.5,1.5,'Punkt startowy (1,5, 1,5)  ','HorizontalAlignment', 'right')
      
@@ -42,8 +43,8 @@ function [ ] = additiveART_3rown_2niew( A,G,F,x,errorSize)
      xlabel('i-ta iteracja')
      ylabel('b³¹d')
      grid minor
-
-     text(-0.2,1.2, 'Algorytm additive ART (const lambda = 1)', 'HorizontalAlignment', 'center',...
+     legend( '\lambda = const', '\lambda zmniejszana w ka¿dej iteracji', 'Location' , 'southwest');
+     text(-0.2,1.2, 'Algorytm additive ART', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');
     
 %     
