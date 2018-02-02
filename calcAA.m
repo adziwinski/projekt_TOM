@@ -1,4 +1,4 @@
-function [rozwiazanie,blad,iteracje] = calcAA( A,G,errorSize, maxAmountOfInterations, lambdaIsConst, lambdaInitValue, lambdaDivideCoeff) 
+function [rozwiazanie,blad,iteracje] = calcAA( A,G,errorSize, maxAmountOfInterations, lambdaInitValue, lambdaDivideCoeff) 
 
     F1 = [1.5; 1.5];
     lambda = lambdaInitValue;
@@ -15,15 +15,11 @@ function [rozwiazanie,blad,iteracje] = calcAA( A,G,errorSize, maxAmountOfInterat
             tempBlad(j) = G(j) - (A(j,:) * F1);
             F1 = f1_1;
             rozwiazanie(k,:) = F1;
-            %error = abs(tempBlad(j));
             k=k+1;
         end
         i=i+1;
         blad(i) = sum(abs(tempBlad).^2)^(1/2);
-        %blad(i) = sqrt((tempBlad(1)).^2 + (tempBlad(2)).^2);
-        if lambdaIsConst == false
-            lambda = lambda/lambdaDivideCoeff;
-        end
+        lambda = lambda/lambdaDivideCoeff;
     end
     iteracje = 1:i;
     iteracje = iteracje - 1;
