@@ -61,9 +61,9 @@ while(1)
                     xlabel('x');
                     ylabel('y');
                 case 2 % additive ART
-                    additiveART_3rown_2niew( A,G,F,x,10^(-8));
+                    additiveART_3rown_2niew( A,G,F,x,10^-9);
                 case 3 % multiadditiveART
-                    multiplicativeART_2rown_2niew(A,G,F,x,10^-9); 
+                    multiplicativeART_3rown_2niew(A,G,F,x,10^-9); 
                 case 4 % porównanie metod
                     compare22(A,G,F,x,10^-9); 
                 case 5
