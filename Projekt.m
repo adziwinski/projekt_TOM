@@ -28,7 +28,7 @@ while(1)
                     xlabel('x');
                     ylabel('y');
                 case 2 % additive ART
-                    additiveART_2rown_2niew( A,G,F,x,10^(-8));
+                    additiveART_2rown_2niew( A,G,F,x,10^(-6));
                 case 3 % multiadditiveART
                     multiplicativeART_2rown_2niew(A,G,F,x,10^-9); 
                 case 4 % porównanie metod
