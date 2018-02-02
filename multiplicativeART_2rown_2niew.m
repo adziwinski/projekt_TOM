@@ -78,8 +78,5 @@ function [ ] = multiplicativeART_2rown_2niew(A,G,F,x, errorSize)
 
      text(-0.2,1.2, 'Algorytm multiplicative ART (lambda zmienna)', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');
-
-
-
 end
 
