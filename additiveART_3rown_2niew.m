@@ -2,8 +2,9 @@ function [ ] = additiveART_3rown_2niew( A,G,F,x,errorSize)
 
     y = calc2(A,G,x);
     
-    [rozwiazanie,blad,iteracje] = calculateAA22( A,G,errorSize );
-    [rozwiazanie_l,blad_l,iteracje_l] = lambdaAA22( A,G, errorSize );
+    [rozwiazanie,blad,iteracje] = calcAA( A,G,errorSize, 30, false, 1, 1);
+
+    [rozwiazanie_l,blad_l,iteracje_l] = calcAA( A,G,errorSize, 30, true, 1.5, 1.1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
