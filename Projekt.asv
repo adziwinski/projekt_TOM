@@ -14,7 +14,38 @@ while(1)
             choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');            
             switch choice2
                 case 1
-                    pseudoodwrotnosc22(A,G,x);
+                    F = A\G;
+                    FP = pinv(A)*G; 
+                    figure; % pseudoodwrotnoœæ
+                    y = calc2(A,G,x);
+                    plot(x, y(1,:), x, y(2,:), FP(1,1), FP(2,1), 'ko')
+                    axis([0.9 2 0.9 2])
+                    grid on
+                    grid minor
+                    title('Pseudoodwrotnoœæ');
+                    set(0, 'defaultTextFontSize',10);
+                    text(FP(1), FP(2), 'wynik  ', 'HorizontalAlignment', 'right');
+                    xlabel('x');
+                    ylabel('y');
+                    figure; % porównanie pseudoodwrotnoœci z lewym dzieleniem
+                    subplot(1,2,1)
+                     plot(x, y(1,:), x, y(2,:), FP(1,1), FP(2,1), 'ko')
+                     axis([0.9 2 0.9 2])
+                     grid on
+                     grid minor
+                     title('Lewe dzielenie');
+                     set(0, 'defaultTextFontSize',10);
+                    text(FP(1), FP(2), 'wynik  ', 'HorizontalAlignment', 'right');
+                    xlabel('x');
+                    ylabel('y');
+                     title('Pseudoodwrotnoœæ');
+                     set(0, 'defaultTextFontSize',10);
+                     text(FP(1), FP(2), 'wynik  ', 'HorizontalAlignment', 'right');
+                    subplot(1,2,2)
+                     plot(x, y(1,:), x, y(2,:), F(1,1), F(2,1), 'ko')
+                     axis([0.9 2 0.9 2])
+                     grid on
+                     grid minor
                 case 2 % additive ART
                     additiveART_2rown_2niew( A,G,x,10^(-6));
                 case 3 % multiadditiveART

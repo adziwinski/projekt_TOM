@@ -1,6 +1,7 @@
-function [ ] = compare22( A,G,F,x, errorSize )
+function [ ] = compare22( A,G,x, errorSize )
     y = calc2(A,G,x);
     FP = pinv(A)*G; 
+    F = A\G;
     
     [ rozwiazanieAA,bladAA,iteracjeAA ] = calculateAA22( A,G, errorSize);
     [ rozwiazanieMA,bladMA,iteracjeMA ] = calculateMA22( A,G, errorSize);

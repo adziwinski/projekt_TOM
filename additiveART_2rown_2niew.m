@@ -1,4 +1,4 @@
-function [ ] = additiveART_2rown_2niew( A,G,F,x,errorSize)
+function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
 
     y = calc2(A,G,x);
     
