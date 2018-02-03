@@ -8,10 +8,11 @@ function [ rozwiazanie,blad,iteracje ] = calcMA( A,G,errorSize, maxAmountOfInter
     rozwiazanie(k,:) = F1;
     k=k+1;
     while blad(k-1)>errorSize && k<maxAmountOfInterations
-        for j=1:1:size(F1,1)
-            f2_1 = F1(j,1) * (G(j,1) / (A(j,:) * F1)) ^ labmda;
+        for j=1:1:size(A,1)
+%             f2_1 = F1(j,1) * (G(j,1) / (A(j,:) * F1)) ^ labmda;
+            f2_1 = F1 * (G(j) / (A(j,:) * F1)) ^ labmda;
             tempBlad(j) = G(j,1) - (A(j,:) * F1);
-            F1(j,1) = f2_1;
+            F1 = f2_1;
         end   
         rozwiazanie(k,:) = F1;
         blad(k) = sum(abs(tempBlad).^2)^(1/2);
