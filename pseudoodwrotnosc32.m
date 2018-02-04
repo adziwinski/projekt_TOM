@@ -13,7 +13,7 @@ function [ ] = pseudoodwrotnosc32(A,G,x)
     y = calc2(A,G,x);
     plot(x, y(1,:), x, y(2,:), x, y(3,:), FP(1,1), FP(2,1), 'ko')
     axis('square')
-    axis([1 1.8 1.2 2])
+    axis([0.9 1.9 1 2])
     grid on
     grid minor
     title('Pseudoodwrotnoœæ');
@@ -34,7 +34,7 @@ function [ ] = pseudoodwrotnosc32(A,G,x)
     subplot(1,2,1)
      plot(x, y(1,:), x, y(2,:), x, y(3,:), FP(1,1), FP(2,1), 'ko')
      axis('square')
-     axis([1 1.8 1.2 2])
+     axis([0.9 1.9 1 2])
      grid on
      grid minor   
      
@@ -46,12 +46,12 @@ function [ ] = pseudoodwrotnosc32(A,G,x)
            sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)),...
            sprintf('równanie y = %.1f*x + %.1f', A(3,1)/A(3,2), G(3)/A(3,2)), 'wynik', 'Location' , 'southwest');
      format short
-     text(1.9,2, sprintf('B³¹d = %.2e   ', bladFP), 'HorizontalAlignment', 'right');
+     text(1.9,1.9, sprintf('B³¹d = %.2e   ', bladFP), 'HorizontalAlignment', 'right');
      
     subplot(1,2,2)
      plot(x, y(1,:), x, y(2,:), x, y(3,:), F(1,1), F(2,1), 'ko')
      axis('square')
-     axis([1 1.8 1.2 2])
+     axis([0.9 1.9 1 2])
      grid on
      grid minor
      title('Lewe dzielenie');set(0, 'defaultTextFontSize',10);
@@ -60,7 +60,7 @@ function [ ] = pseudoodwrotnosc32(A,G,x)
      legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)),...
            sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)),...
            sprintf('równanie y = %.1f*x + %.1f', A(3,1)/A(3,2), G(3)/A(3,2)), 'wynik', 'Location' , 'southwest');
-     text(1.9,2, sprintf('B³¹d = %.2e   ', bladF), 'HorizontalAlignment', 'right');
+     text(1.9,1.9, sprintf('B³¹d = %.2e   ', bladF), 'HorizontalAlignment', 'right');
      
      text(-0.2,1.2, 'Porównanie dwóch metod', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');

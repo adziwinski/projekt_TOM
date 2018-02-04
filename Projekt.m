@@ -37,9 +37,7 @@ while(1)
 
             choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');            
             switch choice2
-                case 1
-                    F = A\G;
-                    FP = pinv(A) * G;                  
+                case 1                  
                     pseudoodwrotnosc32(A,G,x);
                 case 2 % additive ART
                     additiveART_3rown_2niew( A,G,F,x,10^-9);
@@ -56,13 +54,28 @@ while(1)
             A = [5.05 0.5 2; 0.1 1 1]; %wychodzi dobrze
             G = [8.5; 2];
             F = A\G;
+            x = 1:0.5:2;
+            z = 1:0.5:2;
 
-
+            choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');            
+            switch choice2
+                case 1
+                    pseudoodwrotnosc23(A,G,x,z);
+                case 2 % additive ART
+                    %additiveART_2rown_2niew( A,G,x,10^(-6));
+                case 3 % multiadditiveART
+                    %multiplicativeART_2rown_2niew(A,G,x,10^-9); 
+                case 4 % porównanie metod
+                    %compare22(A,G,x,10^-9); 
+                case 5
+                    break;
+            end
+            
             % rysowanie wykresu
-            x = 0.9:0.1:2;
-            y = calc3d(A,G,x);
-            z = [-1,1,-1,1];
-
+            x = 1:0.5:2;
+            z = 1:0.5:2;
+            y = calc3d(A,G,x,z);
+            
             figure;
             plot(x,y(1,:),x,y(2,:));
             xlabel('x');
