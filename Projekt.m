@@ -53,7 +53,7 @@ while(1)
                 case 3 % multiadditiveART
                     multiplicativeART_3rown_2niew(A,G,F,x,10^-9); 
                 case 4 % porównanie metod
-                    compare22(A,G,F,x,10^-9); 
+                    compare32(A,G,F,x,10^-9); 
                 case 5
                     break;
             end
