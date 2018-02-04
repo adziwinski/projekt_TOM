@@ -1,4 +1,4 @@
-function [ ] = pseudoodwrotnosc22(A,G,x)
+function [ ] = pseudoodwrotnosc32(A,G,x)
     
     F = A\G;
     FP = pinv(A)*G; 
@@ -11,9 +11,9 @@ function [ ] = pseudoodwrotnosc22(A,G,x)
     
     figure('Name','Pseudoodwrotnoœæ'); % pseudoodwrotnoœæ
     y = calc2(A,G,x);
-    plot(x, y(1,:), x, y(2,:), FP(1,1), FP(2,1), 'ko')
+    plot(x, y(1,:), x, y(2,:), x, y(3,:), FP(1,1), FP(2,1), 'ko')
     axis('square')
-    axis([1.2 1.9 1.4 2.1 ])
+    axis([1 1.8 1.2 2 ])
     grid on
     grid minor
     title('Pseudoodwrotnoœæ');

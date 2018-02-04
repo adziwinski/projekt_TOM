@@ -30,24 +30,17 @@ while(1)
             clear all;
             A = [5.05 0.5; 0.1 1; 2 1];
             G = [8.8421; 1.9721; 4.3452];
-            F = A\G; % równanie jest sprzeczne. FF to rozwi¹zanie œredniokwadratowe
+            %F = A\G; % równanie jest sprzeczne. FF to rozwi¹zanie œredniokwadratowe
             x = 1:0.5:2;
-            FP = pinv(A)*G; 
-            y = calc2(A,G,x);
+            %FP = pinv(A)*G; 
+            %y = calc2(A,G,x);
 
             choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');            
             switch choice2
                 case 1
-                    figure; % pseudoodwrotnoœæ
-                    plot(x, y(1,:), x, y(2,:), x, y(3,:), F(1,1), F(2,1), 'ko')
-                    axis([0.9 2 0.9 2])
-                    grid on
-                    grid minor
-                    title('Pseudoodwrotnoœæ');
-                    set(0, 'defaultTextFontSize',10);
-                    text(FP(1), FP(2), 'wynik  ', 'HorizontalAlignment', 'right');
-                    xlabel('x');
-                    ylabel('y');
+                    F = A\G;
+                    FP = pinv(A) * G;                  
+                    pseudoodwrotnosc32(A,G,x);
                 case 2 % additive ART
                     additiveART_3rown_2niew( A,G,F,x,10^-9);
                 case 3 % multiadditiveART
