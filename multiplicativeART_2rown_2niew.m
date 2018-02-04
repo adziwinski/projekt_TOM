@@ -2,7 +2,7 @@ function [ ] = multiplicativeART_2rown_2niew(A,G,x, errorSize)
 
     y = calc2(A,G,x);
 
-    [ rozwiazanie,blad,iteracje ] = calculateMA22( A,G, errorSize);
+    [ rozwiazanie,blad,iteracje ] = calcMA( A,G, errorSize,100, 0.4, 1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
