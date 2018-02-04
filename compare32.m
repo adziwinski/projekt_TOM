@@ -5,8 +5,8 @@ function [] = compare32(A,G,F,x,errorSize)
     
     [rozwiazanieAA,bladAA,iteracjeAA] = calcAA( A,G,errorSize, 30, 1, 1);
     [rozwiazanie_lAA,blad_lAA,iteracje_lAA] = calcAA( A,G,errorSize, 30, 1.5, 1.1);
-    [rozwiazanieMA,bladMA,iteracjeMA] = calcMA( A,G, errorSize,30, 1, 1);
-    [rozwiazanie_lMA,blad_lMA,iteracje_lMA] = calcMA( A,G,errorSize, 30, 1.5, 1.1);
+    [rozwiazanieMA,bladMA,iteracjeMA] = calcMA( A,G, errorSize,100, 0.4, 1);
+    [rozwiazanie_lMA,blad_lMA,iteracje_lMA] = calcMA( A,G,errorSize, 100, 0.4, 1.1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -64,7 +64,7 @@ function [] = compare32(A,G,F,x,errorSize)
          'Multiplicative ART \lambda = const',...
          'Multiplicative ART \lambda zmniejszana w ka¿dej iteracji',...
          'Location' , 'southwest');
-     text(-0.2,1.2, 'Porównie metod', 'HorizontalAlignment', 'center',...
+     text(-0.2,1.2, 'Trzy równania, dwie niewiadome - Porównie metod', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');
 end
 

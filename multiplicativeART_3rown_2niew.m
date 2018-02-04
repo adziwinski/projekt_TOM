@@ -2,8 +2,8 @@ function [ ] = multiplicativeART_3rown_2niew(A,G,F,x, errorSize)
 
     y = calc2(A,G,x);
 
-    [ rozwiazanie,blad,iteracje ] = calcMA( A,G, errorSize,30, 1, 1);
-    [rozwiazanie_l,blad_l,iteracje_l] = calcMA( A,G,errorSize, 30, 1.5, 1.1);
+    [ rozwiazanie,blad,iteracje ] = calcMA( A,G, errorSize,100, 0.4, 1);
+    [rozwiazanie_l,blad_l,iteracje_l] = calcMA( A,G,errorSize, 100, 0.4, 1.1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -33,7 +33,7 @@ function [ ] = multiplicativeART_3rown_2niew(A,G,F,x, errorSize)
 
     subplot(1,2,2)  
      semilogy(iteracje, abs(blad), '-');
-     ylim([errorSize 1]);
+%      ylim([errorSize 1]);
      hold on;
      semilogy(iteracje_l, abs(blad_l), '-');
      hold off;
