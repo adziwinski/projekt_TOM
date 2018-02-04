@@ -20,7 +20,7 @@ function [ ] = pseudoodwrotnosc22(A,G,x)
     set(0, 'defaultTextFontSize',10);
     xlabel('x');
     ylabel('y');
-    legend('równanie 1', 'równanie 2', 'wynik', 'Location' , 'southwest')
+    legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)), sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)), 'wynik', 'Location' , 'southwest')
 
                     
     screenSize = get(groot,'ScreenSize');
@@ -39,8 +39,9 @@ function [ ] = pseudoodwrotnosc22(A,G,x)
      set(0, 'defaultTextFontSize',10);
      xlabel('x');
      ylabel('y');
-     legend('równanie 1', 'równanie 2', 'wynik pseudoodwrotnoœci', 'Location' , 'southwest')
-     text(2,2, 'B³¹d pseudoodwrotnoœci = ', 'HorizontalAlignment', 'right');
+     legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)), sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)), 'wynik', 'Location' , 'southwest')
+     format short
+     text(1.9,2, sprintf('B³¹d = %e ', bladFP), 'HorizontalAlignment', 'right');
      
     subplot(1,2,2)
      plot(x, y(1,:), x, y(2,:), F(1,1), F(2,1), 'ko')
@@ -51,7 +52,7 @@ function [ ] = pseudoodwrotnosc22(A,G,x)
      title('Lewe dzielenie');set(0, 'defaultTextFontSize',10);
      xlabel('x');
      ylabel('y');
-     legend('równanie 1', 'równanie 2', 'wynik lewego dzielenia', 'Location' , 'southwest')
-     text(2,2, 'B³¹d lewego dzielenia =  \bladF', 'HorizontalAlignment', 'right');
+     legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)), sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)), 'wynik', 'Location' , 'southwest')
+     text(1.9,2, sprintf('B³¹d = %e ', bladF), 'HorizontalAlignment', 'right');
 
 end

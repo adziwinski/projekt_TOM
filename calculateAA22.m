@@ -1,4 +1,4 @@
-function [rozwiazanie,blad,iteracje] = calculateAA22( A,G,errorSize )
+function [rozwiazanie,blad,iteracje,lambda] = calculateAA22( A,G,errorSize )
 
     F1 = [1.5; 1.5];
     lambda = 1;

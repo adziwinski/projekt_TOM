@@ -2,7 +2,7 @@ function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
 
     y = calc2(A,G,x);
     
-    [rozwiazanie,blad,iteracje] = calculateAA22( A,G,errorSize );
+    [rozwiazanie,blad,iteracje,lambda] = calculateAA22( A,G,errorSize );
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -17,9 +17,7 @@ function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
      plot(rozwiazanie(:,1),rozwiazanie(:,2), 'ko--');
      hold off;
      axis('square')
-     axis([1.2 1.9 1.4 2.1 ])
-     set(0, 'defaultTextFontSize',10);
-     text(0.9,0.65,'Punkt startowy (1, 1)')
+     axis([1.1 1.8 1.4 2.1 ])
      T = {'Ortogonalne rzutowanie punktu na proste'; 
      'odpowiadaj¹ce dwóm równaniom';
      'uk³adu z dwiema niewiadomymi'};
@@ -27,16 +25,18 @@ function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
      xlabel('x')
      ylabel('y')
      grid minor
-     text(1.5,1.5,'Punkt startowy (1,5, 1,5)  ','HorizontalAlignment', 'right')
+     set(0, 'defaultTextFontSize',10);
+     text(2,1.5, sprintf('Lambda = %d', lambda))
+     legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)), sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)), 'wynik w i-tej iteracji', 'Location' , 'southwest')
      
     subplot(1,2,2)
     semilogy(iteracje, abs(blad(:)), 'x-.');
      axis('square')
-     title('B³¹d oszacowania dla i-tej iteracji');
+     title('B³¹d dla i-tej iteracji');
      xlabel('i-ta iteracja')
      ylabel('b³¹d')
      grid minor
-
+     
      text(-0.2,1.2, 'Algorytm additive ART (const lambda = 1)', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');
     
@@ -57,9 +57,7 @@ function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
      plot(rozwiazanie(:,1),rozwiazanie(:,2), 'ko--');
      hold off;
      axis('square')
-     axis([1.2 1.9 1.4 2.1 ])
-     set(0, 'defaultTextFontSize',10);
-     text(1.5,1.5,'Punkt startowy (1,5, 1,5)  ','HorizontalAlignment', 'right')
+     axis([1.1 1.8 1.4 2.1 ])
      T = {'Ortogonalne rzutowanie punktu na proste'; 
      'odpowiadaj¹ce dwóm równaniom';
      'uk³adu z dwiema niewiadomymi'};
@@ -67,12 +65,12 @@ function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
      xlabel('x')
      ylabel('y')
      grid minor
-     text(1,1,'  Punkt startowy (1, 1)','HorizontalAlignment', 'left');
+     legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)), sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)), 'wynik w i-tej iteracji', 'Location' , 'southwest')
      
     subplot(1,2,2)
     semilogy(iteracje, abs(blad(:)), 'x-.');
      axis('square')
-     title('B³¹d oszacowania dla i-tej iteracji');
+     title('B³¹d dla i-tej iteracji');
      xlabel('i-ta iteracja')
      ylabel('b³¹d')
      grid minor
