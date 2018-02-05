@@ -1,5 +1,5 @@
-function [rozwiazanie,blad,iteracje] = calcAA( A,G,errorSize, maxAmountOfInterations, lambdaInitValue, lambdaDivideCoeff) 
-
+function [rozwiazanie,blad,iteracje, lambda] = calcAA( A,G,errorSize, maxAmountOfInterations, lambdaInitValue, lambdaDivideCoeff)
+    
     F1 = [1.5; 1.5];
     lambda = lambdaInitValue;
     i=1;

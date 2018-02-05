@@ -11,23 +11,28 @@ function [ ] = pseudoodwrotnosc23(A,G,x,z)
     
     figure('Name','Pseudoodwrotnoœæ'); % pseudoodwrotnoœæ
     y = calc3d(A,G,x,z);
-    [X1 ,Z1] = meshgrid(x,z);
-    [Y1 ,Z2] = meshgrid(y(1,:),z);
-    surf(X1,Y1,Z2);
+    [X ,Z] = meshgrid(x,z);
+    [Y ,Z] = meshgrid(y(1,:),z);
+    colormap([0 0 1]);
+    surf(X,Y,Z);
     shading flat;
     alpha(0.5);
     hold on;
-    [Y2 ,Z2] = meshgrid(y(2,:),z);
-    surf(X1,Y2,Z2);
-    colormap([0 0 1]);
+    [Y2 ,Z] = meshgrid(y(2,:),z);
+    %colormap([1 0 0]);
+    surf(X,Y2,Z);
     shading flat;
     alpha(0.5);
+    plot3(FP(1),FP(2),FP(3), 'ko');
     hold off;
     grid minor
     xlabel('x');
     ylabel('y');
     zlabel('z');
+    legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)),...
+           sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)), 'wynik', 'Location' , 'southwest');
            
+       
     %plot3(x, y(1,:), z, x, y(2,:), z, FP(1,1), FP(2,1), FP(3,1), 'ko')
     %axis('square')
     %axis([0.9 1.9 1 2])
@@ -35,9 +40,7 @@ function [ ] = pseudoodwrotnosc23(A,G,x,z)
     %grid minor
     %title('Pseudoodwrotnoœæ');
     %set(0, 'defaultTextFontSize',10);
-    xlabel('x');
-    ylabel('y');
-    zlabel('z');
+    
     %legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)),...
     %       sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)),...
     %       sprintf('równanie y = %.1f*x + %.1f', A(3,1)/A(3,2), G(3)/A(3,2)), 'wynik', 'Location' , 'southwest');

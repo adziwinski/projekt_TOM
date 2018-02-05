@@ -71,35 +71,6 @@ while(1)
                     break;
             end
             
-            % rysowanie wykresu
-            x = 1:0.5:2;
-            z = 1:0.5:2;
-            y = calc3d(A,G,x,z);
-            
-            figure;
-            plot(x,y(1,:),x,y(2,:));
-            xlabel('x');
-            ylabel('y');
-            title('Wykres 2d (dla porówania)');
-            grid minor
-
-            [X1 ,Z1] = meshgrid(x,z);
-            [Y1 ,Z2] = meshgrid(y(1,:),z);
-            figure;
-            surf(X1,Y1,Z2);
-            shading flat;
-            alpha(0.5);
-            hold on;
-            [Y2 ,Z2] = meshgrid(y(2,:),z);
-            surf(X1,Y2,Z2);
-            colormap([0 0 1]);
-            shading flat;
-            alpha(0.5);
-            hold off;
-            grid minor
-            xlabel('x');
-            ylabel('y');
-            zlabel('z');
         case 4
             break;
     end
