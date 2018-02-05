@@ -1,9 +1,9 @@
-function [ ] = additiveART_3rown_2niew( A,G,F,x,errorSize)
+function [ ] = additiveART_3rown_2niew( A,G,x,errorSize)
 
     y = calc2(A,G,x);
     
-    [rozwiazanie,blad,iteracje] = calcAA( A,G,errorSize, 30, 1, 1);
-    [rozwiazanie_l,blad_l,iteracje_l] = calcAA( A,G,errorSize, 30, 1.5, 1.1);
+    [rozwiazanie,blad,iteracje, ~] = calcAA( A,G,errorSize, 30, 1, 1);
+    [rozwiazanie_l,blad_l,iteracje_l, ~] = calcAA( A,G,errorSize, 30, 1.5, 1.1);
     
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');

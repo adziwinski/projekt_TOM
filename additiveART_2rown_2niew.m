@@ -42,7 +42,7 @@ function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
     
     
     
-    [rozwiazanie,blad,iteracje] = lambdaAA22( A,G, errorSize );
+    [rozwiazanie,blad,iteracje,~] = calcAA( A,G,errorSize, 30, 1.5, 1.1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
