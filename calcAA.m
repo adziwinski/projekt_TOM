@@ -1,7 +1,8 @@
-function [rozwiazanie,blad,iteracje] = calcAA( A,G,errorSize, maxAmountOfInterations, lambdaInitValue, lambdaDivideCoeff) 
+function [rozwiazanie,blad,iteracje,lambdaVector] = calcAA( A,G,errorSize, maxAmountOfInterations, lambdaInitValue, lambdaDivideCoeff) 
 
     F1 = [1.5; 1.5];
     lambda = lambdaInitValue;
+    lambdaVector = 0;
     i=1;
     k=1;
     blad=1;
@@ -19,7 +20,9 @@ function [rozwiazanie,blad,iteracje] = calcAA( A,G,errorSize, maxAmountOfInterat
         end
         i=i+1;
         blad(i) = sum(abs(tempBlad).^2)^(1/2);
+        lambdaVector(i) = lambda;
         lambda = lambda/lambdaDivideCoeff;
+        
     end
     iteracje = 1:i;
     iteracje = iteracje - 1;
