@@ -35,9 +35,8 @@ function [ ] = pseudoodwrotnosc23(A,G,x,z)
     zlabel('z');
     legend(sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(1,1)/A(1,2), A(1,3)/A(1,2), G(1)/A(1,2)),...
            sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(2,1)/A(2,2), A(2,3)/A(2,2), G(2)/A(2,2)), 'wynik', 'Location' , 'southwest');
-           
-       
-       
+   
+       %%       
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
     windowSize = screenSize;
