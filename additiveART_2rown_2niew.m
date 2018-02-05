@@ -18,15 +18,13 @@ function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
      hold off;
      axis('square')
      axis([1.1 1.8 1.4 2.1 ])
-     T = {'Ortogonalne rzutowanie punktu na proste'; 
-     'odpowiadaj¹ce dwóm równaniom';
-     'uk³adu z dwiema niewiadomymi'};
+     T = {'Interpretacja graficzna'};
      title(T)
      xlabel('x')
      ylabel('y')
      grid minor
      set(0, 'defaultTextFontSize',10);
-     text(2,1.5, sprintf('Lambda = %d', lambda))
+     text(0.9,1.9, sprintf('Wartoœæ lambdy:\nLambda = %d', lambda(1,1)))
      legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)), sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)), 'wynik w i-tej iteracji', 'Location' , 'southwest')
      
     subplot(1,2,2)
@@ -37,12 +35,12 @@ function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
      ylabel('b³¹d')
      grid minor
      
-     text(-0.2,1.2, 'Algorytm additive ART (const lambda = 1)', 'HorizontalAlignment', 'center',...
+    text(-0.2,1.2, 'Algorytm additive ART (2 równania i 2 niewiadome)', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');
     
     
     
-    [rozwiazanie,blad,iteracje,~] = calcAA( A,G,errorSize, 30, 1.5, 1.1);
+    [rozwiazanie,blad,iteracje,lambda] = calcAA( A,G,errorSize, 30, 1.5, 1.1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -58,12 +56,14 @@ function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
      hold off;
      axis('square')
      axis([1.1 1.8 1.4 2.1 ])
-     T = {'Ortogonalne rzutowanie punktu na proste'; 
-     'odpowiadaj¹ce dwóm równaniom';
-     'uk³adu z dwiema niewiadomymi'};
+     T = {'Interpretacja graficzna'};
      title(T)
      xlabel('x')
      ylabel('y')
+     set(0, 'defaultTextFontSize',10, 'defaultTextRotation',90);
+     text(0.87,1.78, sprintf('Wartoœæ lambdy w i-tej iteracji'))
+     set(0, 'defaultTextFontSize',10, 'defaultTextRotation',0);
+     text(0.9,1.9, sprintf('Lambda = %.2f\n', lambda(:,1)))
      grid minor
      legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)), sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)), 'wynik w i-tej iteracji', 'Location' , 'southwest')
      
@@ -75,7 +75,7 @@ function [ ] = additiveART_2rown_2niew( A,G,x,errorSize)
      ylabel('b³¹d')
      grid minor
 
-     text(-0.2,1.2, 'Algorytm additive ART (lambda zmniejszana w ka¿dej iteracji)', 'HorizontalAlignment', 'center',...
+     text(-0.2,1.2, 'Algorytm additive ART (2 równania i 2 niewiadome)', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');
     
     

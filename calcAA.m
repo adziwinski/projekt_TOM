@@ -1,14 +1,19 @@
 function [rozwiazanie,blad,iteracje,lambdaVector] = calcAA( A,G,errorSize, maxAmountOfInterations, lambdaInitValue, lambdaDivideCoeff) 
 
-    F1 = [1.5; 1.5];
-    lambda = lambdaInitValue;
-    lambdaVector = 0;
+    if (size(A,2) == 2) 
+        F1 = [1.5; 1.5]; 
+    elseif (size(A,2) == 3)
+        F1 = [1.5; 1.5; 1.5];
+    end
+        
     i=1;
     k=1;
+    lambda = lambdaInitValue;
+    lambdaVector(i) = lambda;
     blad=1;
     rozwiazanie(k,:) = F1;
     tempBlad = G - (A * F1);
-    blad(1) = sum(abs(tempBlad).^2)^(1/2);
+    blad(i) = sum(abs(tempBlad).^2)^(1/2);
     k=k+1;
     while blad(i)>errorSize && i<maxAmountOfInterations
         for j=1:size(A,1)
@@ -20,9 +25,8 @@ function [rozwiazanie,blad,iteracje,lambdaVector] = calcAA( A,G,errorSize, maxAm
         end
         i=i+1;
         blad(i) = sum(abs(tempBlad).^2)^(1/2);
-        lambdaVector(i) = lambda;
         lambda = lambda/lambdaDivideCoeff;
-        
+        lambdaVector(i,1) = lambda;
     end
     iteracje = 1:i;
     iteracje = iteracje - 1;
