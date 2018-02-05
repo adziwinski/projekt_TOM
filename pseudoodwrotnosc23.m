@@ -15,6 +15,8 @@ function [ ] = pseudoodwrotnosc23(A,G,x,z)
     [Y ,Z] = meshgrid(y(1,:),z);
     colormap([0 0 1]);
     surf(X,Y,Z);
+    %axis('square')
+    %axis([0.9 1.9 1 2])
     shading flat;
     alpha(0.5);
     hold on;

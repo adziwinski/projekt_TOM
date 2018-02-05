@@ -26,7 +26,5 @@ function [ ] = additiveART_2rown_3niew( A,G,x,errorSize)
     ylabel('y');
     zlabel('z');
     
-    [rozwiazanie,blad,iteracje,lambda] = calcAA( A,G,errorSize, 30, 1, 1);
-    
 end
 

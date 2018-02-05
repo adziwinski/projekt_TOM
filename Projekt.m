@@ -70,10 +70,7 @@ while(1)
                 case 5
                     break;
             end
-<<<<<<< HEAD
-            
-=======
->>>>>>> 1710abe4633fb3bf5b71989e39b4579ebbb3f550
+
         case 4
             break;
     end
