@@ -1,12 +1,20 @@
-function [ rozwiazanie,blad,iteracje ] = calcMA( A,G,errorSize, maxAmountOfIterations, lambdaInitValue, lambdaDivideCoeff) 
-    F1 = [1.5; 1.5];
+function [ rozwiazanie,blad,iteracje,lambdaVector] = calcMA( A,G,errorSize, maxAmountOfIterations, lambdaInitValue, lambdaDivideCoeff) 
+    
+    if (size(A,2) == 2) 
+        F1 = [1.5; 1.5]; 
+    elseif (size(A,2) == 3)
+        F1 = [1.5; 1.5; 1.5];
+    end
+
     lambda = lambdaInitValue;
+    lambdaVector(1) = lambda;
     k=1;
     tempBlad = G - (A * F1);
     blad=1;
     blad(1) = sum(abs(tempBlad).^2)^(1/2);
     rozwiazanie(k,:) = F1;
     k=k+1;
+    m=2;
     while blad(k-1)>errorSize && k<maxAmountOfIterations
         for j=1:size(A,1)
             for i=1:size(F1,1)
@@ -19,6 +27,8 @@ function [ rozwiazanie,blad,iteracje ] = calcMA( A,G,errorSize, maxAmountOfItera
             k=k+1;
         end   
         lambda = lambda/lambdaDivideCoeff;
+        lambdaVector(m) = lambda;
+        m=m+1;
     end
     iteracje = 1:k-1;
     iteracje = iteracje -1;

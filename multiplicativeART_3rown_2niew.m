@@ -2,8 +2,8 @@ function [ ] = multiplicativeART_3rown_2niew(A,G,x,errorSize)
 
     y = calc2(A,G,x);
 
-    [ rozwiazanie,blad,iteracje ] = calcMA( A,G, errorSize,100, 0.4, 1);
-    [rozwiazanie_l,blad_l,iteracje_l] = calcMA( A,G,errorSize, 100, 0.4, 1.1);
+    [ rozwiazanie,blad,iteracje, lambda ] = calcMA( A,G, errorSize,100, 0.4, 1);
+    [rozwiazanie_l,blad_l,iteracje_l, lambda_l] = calcMA( A,G,errorSize, 100, 0.4, 1.1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);

@@ -3,8 +3,8 @@ function [ ] = compare22( A,G,x, errorSize )
     FP = pinv(A)*G; 
     F = A\G;
     
-    [ rozwiazanieAA,bladAA,iteracjeAA ] = calcAA( A,G,errorSize, 30, 1, 1);
-    [ rozwiazanieMA,bladMA,iteracjeMA ] = calcMA( A,G, errorSize,100, 0.4, 1);
+    [ rozwiazanieAA,bladAA,iteracjeAA, ~] = calcAA( A,G,errorSize, 30, 1, 1);
+    [ rozwiazanieMA,bladMA,iteracjeMA, ~] = calcMA( A,G, errorSize,100, 0.4, 1);
     
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);

@@ -30,10 +30,7 @@ while(1)
             clear all;
             A = [5.05 0.5; 0.1 1; 2 1];
             G = [8.8421; 1.9721; 4.3452];
-            %F = A\G; % równanie jest sprzeczne. FF to rozwi¹zanie œredniokwadratowe
             x = 1:0.5:2;
-            %FP = pinv(A)*G; 
-            %y = calc2(A,G,x);
 
             choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');            
             switch choice2
@@ -44,7 +41,7 @@ while(1)
                 case 3 % multiadditiveART
                     multiplicativeART_3rown_2niew(A,G,x,10^-9); 
                 case 4 % porównanie metod
-                    compare32(A,G,F,x,10^-9); 
+                    compare32(A,G,x,10^-9); 
                 case 5
                     break;
             end
@@ -64,7 +61,7 @@ while(1)
                 case 2 % additive ART
                     additiveART_2rown_3niew(A,G,x,z,10^(-6));
                 case 3 % multiadditiveART
-                    %multiplicativeART_2rown_2niew(A,G,x,10^-9); 
+                    multiplicativeART_2rown_3niew(A,G,x,z,10^-9); 
                 case 4 % porównanie metod
                     %compare22(A,G,x,10^-9); 
                 case 5
