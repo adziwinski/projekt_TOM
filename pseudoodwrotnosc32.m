@@ -47,7 +47,7 @@ function [ ] = pseudoodwrotnosc32(A,G,x)
            sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)),...
            sprintf('równanie y = %.1f*x + %.1f', A(3,1)/A(3,2), G(3)/A(3,2)), 'wynik', 'Location' , 'southwest');
      format short
-     text(1.9,1.9, sprintf('B³¹d = %.2e   ', bladFP), 'HorizontalAlignment', 'right');
+     text(1.9,1.95, sprintf('Rozwi¹zanie = (%.2f, %.2f) \nB³¹d = %.2e ', FP(1,1), FP(2,1), bladFP), 'HorizontalAlignment', 'right');
      
     subplot(1,2,2)
      plot(x, y(1,:), x, y(2,:), x, y(3,:), F(1,1), F(2,1), 'ko')
@@ -61,7 +61,7 @@ function [ ] = pseudoodwrotnosc32(A,G,x)
      legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)),...
            sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)),...
            sprintf('równanie y = %.1f*x + %.1f', A(3,1)/A(3,2), G(3)/A(3,2)), 'wynik', 'Location' , 'southwest');
-     text(1.9,1.9, sprintf('B³¹d = %.2e   ', bladF), 'HorizontalAlignment', 'right');
+     text(1.9,1.95, sprintf('Rozwi¹zanie = (%.2f, %.2f) \nB³¹d = %.2e ', F(1,1), F(2,1), bladF), 'HorizontalAlignment', 'right');
      
      text(-0.2,1.2, 'Porównanie dwóch metod', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');

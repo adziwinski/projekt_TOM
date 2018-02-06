@@ -12,7 +12,7 @@ while(1)
             close all
             A = [ 5.05 0.5; 0.1 1];
             G = [8.5; 2];
-            x = 0.9:0.1:2;
+            x = 1.1:0.01:2.1;
             choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');            
             switch choice2
                 case 1
@@ -33,7 +33,7 @@ while(1)
             close all
             A = [5.05 0.5; 0.1 1; 2 1];
             G = [8.8421; 1.9721; 4.3452];
-            x = 0:0.5:2;
+            x = 0.9:0.01:2;
 
             choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');            
             switch choice2
@@ -54,8 +54,8 @@ while(1)
             close all
             A = [5.05 0.5 2; 0.1 1 1];
             G = [8.5; 2];
-            x = 0:0.1:2;
-            z = 0:0.1:2;
+            x = 0:0.01:2;
+            z = 0:0.01:2;
 
             choice2=menu({' Wybierz metodê rozwi¹zania'}, 'Pseudoodwrotnoœæ', 'Additive ART','Multiplicative ART', 'Porównanie metod', 'Zakoñcz');            
             switch choice2

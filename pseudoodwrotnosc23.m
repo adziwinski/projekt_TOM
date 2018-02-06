@@ -67,7 +67,7 @@ function [ ] = pseudoodwrotnosc23(A,G,x,z)
      legend(sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(1,1)/A(1,2), A(1,3)/A(1,2), G(1)/A(1,2)),...
            sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(2,1)/A(2,2), A(2,3)/A(2,2), G(2)/A(2,2)), 'wynik', 'Location' , 'southwest');
      set(0, 'defaultTextFontSize',10);
-     text(2,1.5,1.8, sprintf('B³¹d = %.2e   ', bladFP), 'HorizontalAlignment', 'right');
+     text(2,1.3,2, sprintf('Rozwi¹zanie = (%.2f, %.2f, %.2f)  \nB³¹d = %.2e  ', FP(1,1), FP(2,1), FP(3,1), bladFP), 'HorizontalAlignment', 'right');
 
     subplot(1,2,2)
      C = zeros(size(X));
@@ -92,7 +92,7 @@ function [ ] = pseudoodwrotnosc23(A,G,x,z)
      legend(sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(1,1)/A(1,2), A(1,3)/A(1,2), G(1)/A(1,2)),...
            sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(2,1)/A(2,2), A(2,3)/A(2,2), G(2)/A(2,2)), 'wynik', 'Location' , 'southwest');
      set(0, 'defaultTextFontSize',10);
-     text(2,1.5,1.8, sprintf('B³¹d = %.2e   ', bladF), 'HorizontalAlignment', 'right');
+     text(2,1.3,2, sprintf('Rozwi¹zanie = (%.2f, %.2f, %.2f)  \nB³¹d = %.2e  ', F(1,1), F(2,1), F(3,1), bladF), 'HorizontalAlignment', 'right');
 
     text(-0.2, 1.1, 'Porównanie dwóch metod', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');

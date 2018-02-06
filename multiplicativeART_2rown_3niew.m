@@ -51,7 +51,7 @@ function [ ] = multiplicativeART_2rown_3niew(A,G,x,z,errorSize)
     
     
     
-    [rozwiazanie,blad,iteracje, lambda] = calcMA( A,G,errorSize, 50, 0.4, 1.1);
+    [rozwiazanie_1,blad_1,iteracje_1, lambda_1] = calcMA( A,G,errorSize, 50, 0.4, 1.1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -76,7 +76,7 @@ function [ ] = multiplicativeART_2rown_3niew(A,G,x,z,errorSize)
      surf(X,Y2,Z, C);
      shading flat;
      alpha(0.5);
-     plot3(rozwiazanie(:,1),rozwiazanie(:,2),rozwiazanie(:,3),'ko--');
+     plot3(rozwiazanie_1(:,1),rozwiazanie_1(:,2),rozwiazanie_1(:,3),'ko--');
      hold off;
      grid on
      grid minor
@@ -86,13 +86,12 @@ function [ ] = multiplicativeART_2rown_3niew(A,G,x,z,errorSize)
      set(0, 'defaultTextFontSize',10, 'defaultTextRotation',90);
      text(0.4,4.2,-0.2, sprintf('Wartoœæ lambdy w i-tej iteracji'))
      set(0, 'defaultTextFontSize',8, 'defaultTextRotation',0);
-     text(0.5,4.2,0.2, sprintf('Lambda = %.3f\n', lambda(1,:)))
-
+     text(0.5,4.2,0.2, sprintf('Lambda = %.3f\n', lambda_1(1,:)))
      legend(sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(1,1)/A(1,2), A(1,3)/A(1,2), G(1)/A(1,2)),...
            sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(2,1)/A(2,2), A(2,3)/A(2,2), G(2)/A(2,2)), 'wynik w i-tej iteracji', 'Location' , 'southwest');
 
     subplot(1,2,2)
-     semilogy(iteracje, abs(blad), 'x-.');
+     semilogy(iteracje_1, abs(blad_1), 'x-.');
      axis('square')
      title('B³¹d oszacowania i-tej iteracji');
      xlabel('i-ta iteracja')
