@@ -36,7 +36,8 @@ function [ ] = pseudoodwrotnosc23(A,G,x,z)
     legend(sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(1,1)/A(1,2), A(1,3)/A(1,2), G(1)/A(1,2)),...
            sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(2,1)/A(2,2), A(2,3)/A(2,2), G(2)/A(2,2)), 'wynik', 'Location' , 'southwest');
    
-       %%       
+       
+
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
     windowSize = screenSize;
@@ -65,6 +66,7 @@ function [ ] = pseudoodwrotnosc23(A,G,x,z)
      zlabel('z');
      legend(sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(1,1)/A(1,2), A(1,3)/A(1,2), G(1)/A(1,2)),...
            sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(2,1)/A(2,2), A(2,3)/A(2,2), G(2)/A(2,2)), 'wynik', 'Location' , 'southwest');
+     set(0, 'defaultTextFontSize',10);
      text(2,1.5,1.8, sprintf('B³¹d = %.2e   ', bladFP), 'HorizontalAlignment', 'right');
 
     subplot(1,2,2)
@@ -89,6 +91,7 @@ function [ ] = pseudoodwrotnosc23(A,G,x,z)
      zlabel('z');
      legend(sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(1,1)/A(1,2), A(1,3)/A(1,2), G(1)/A(1,2)),...
            sprintf('równanie y = %.1f*x + %.1f*z + %.1f', A(2,1)/A(2,2), A(2,3)/A(2,2), G(2)/A(2,2)), 'wynik', 'Location' , 'southwest');
+     set(0, 'defaultTextFontSize',10);
      text(2,1.5,1.8, sprintf('B³¹d = %.2e   ', bladF), 'HorizontalAlignment', 'right');
 
     text(-0.2, 1.1, 'Porównanie dwóch metod', 'HorizontalAlignment', 'center',...

@@ -25,6 +25,7 @@ function [ ] = pseudoodwrotnosc32(A,G,x)
            sprintf('równanie y = %.1f*x + %.1f', A(3,1)/A(3,2), G(3)/A(3,2)), 'wynik', 'Location' , 'southwest');
 
                     
+       
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
     windowSize = screenSize;

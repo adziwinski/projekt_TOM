@@ -2,7 +2,7 @@ function [ ] = multiplicativeART_2rown_2niew(A,G,x, errorSize)
 
     y = calc2(A,G,x);
 
-    [ rozwiazanie,blad,iteracje,lambda ] = calcMA( A,G, errorSize,100, 0.4, 1);
+    [ rozwiazanie,blad,iteracje,lambda ] = calcMA( A,G, errorSize,50, 0.4, 1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -25,7 +25,7 @@ function [ ] = multiplicativeART_2rown_2niew(A,G,x, errorSize)
      grid on
      grid minor
      set(0, 'defaultTextFontSize',10);
-     text(0.9,1.9, sprintf('Wartoœæ lambdy:\nLambda = %d', lambda(1,1)))
+     text(0.9,1.9, sprintf('Wartoœæ lambdy:\nLambda = %.2f', lambda(1,1)))
      legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)), sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)), 'wynik w i-tej iteracji', 'Location' , 'southwest')
 
 
@@ -38,13 +38,13 @@ function [ ] = multiplicativeART_2rown_2niew(A,G,x, errorSize)
      grid on
      grid minor
 
-     text(-0.2,1.2, 'Algorytm multiplicative ART (lambda sta³a)', 'HorizontalAlignment', 'center',...
+     text(-0.2,1.2, 'Algorytm Multiplicative ART', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');
 
 
 
 
-    [ rozwiazanie,blad,iteracje,lambda ] = calcMA( A,G, errorSize,100, 0.4, 1.1);
+    [ rozwiazanie,blad,iteracje,lambda ] = calcMA( A,G, errorSize,50, 0.5, 1.1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -67,10 +67,9 @@ function [ ] = multiplicativeART_2rown_2niew(A,G,x, errorSize)
      grid on
      grid minor
      set(0, 'defaultTextFontSize',10, 'defaultTextRotation',90);
-     text(0.87,1.78, sprintf('Wartoœæ lambdy w i-tej iteracji'))
-     set(0, 'defaultTextFontSize',10, 'defaultTextRotation',0);
-     text(0.9,1.9, sprintf('Lambda = %.2f\n', lambda(:,1)))
-     grid minor
+     text(0.87,1.63, sprintf('Wartoœæ lambdy w i-tej iteracji'))
+     set(0, 'defaultTextFontSize',9, 'defaultTextRotation',0);
+     text(0.9,1.75, sprintf('Lambda = %.3f\n', lambda(1,:)))
      legend(sprintf('równanie y = %.1f*x + %.1f', A(1,1)/A(1,2), G(1)/A(1,2)), sprintf('równanie y = %.1f*x + %.1f', A(2,1)/A(2,2), G(2)/A(2,2)), 'wynik w i-tej iteracji', 'Location' , 'southwest')
 
     subplot(1,2,2)
@@ -82,7 +81,7 @@ function [ ] = multiplicativeART_2rown_2niew(A,G,x, errorSize)
      grid on
      grid minor
 
-     text(-0.2,1.2, 'Algorytm multiplicative ART (lambda zmienna)', 'HorizontalAlignment', 'center',...
+     text(-0.2,1.2, 'Algorytm Multiplicative ART', 'HorizontalAlignment', 'center',...
         'FontSize', 16 , 'Units', 'normalized');
 end
 

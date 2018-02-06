@@ -15,7 +15,7 @@ function [rozwiazanie,blad,iteracje,lambdaVector] = calcAA( A,G,errorSize, maxAm
     tempBlad = G - (A * F1);
     blad(i) = sum(abs(tempBlad).^2)^(1/2);
     k=k+1;
-    while blad(i)>errorSize && i<maxAmountOfInterations
+    while blad(i)>errorSize && i<=maxAmountOfInterations
         for j=1:size(A,1)
             f1_1 = F1 + (lambda * ((G(j,:) - (A(j,:)) * F1) / (A(j,:) * A(j,:)')) * A(j,:)');
             tempBlad(j) = G(j) - (A(j,:) * F1);
