@@ -1,4 +1,4 @@
-function [ ] = additiveART_3rown_2niew( A,G,x,z,errorSize, maxAmountOfInterations, startPoint,lambdaInitValue, lambdaDivideCoeff)
+function [ ] = additiveART_3rown_2niew( A,G,x,errorSize, maxAmountOfInterations, startPoint,lambdaInitValue, lambdaDivideCoeff)
 
     y = calc2(A,G,x);
     
