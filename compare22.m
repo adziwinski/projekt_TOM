@@ -1,10 +1,10 @@
-function [ ] = compare22( A,G,x, errorSize )
+function [ ] = compare22( A,G,x,errorSize, maxAmountOfInterations, startPoint,lambdaAAInitValue, lambdaMAInitValue, lambdaDivideCoeff)
     y = calc2(A,G,x);
     FP = pinv(A)*G; 
     F = A\G;
     
-    [ rozwiazanieAA,bladAA,iteracjeAA, ~] = calcAA( A,G,errorSize, 50, 1, 1);
-    [ rozwiazanieMA,bladMA,iteracjeMA, ~] = calcMA( A,G, errorSize,50, 0.4, 1);
+    [ rozwiazanieAA,bladAA,iteracjeAA, ~] = calcAA( A,G,errorSize, maxAmountOfInterations, startPoint, lambdaAAInitValue, 1);
+    [ rozwiazanieMA,bladMA,iteracjeMA, ~] = calcMA( A,G,errorSize, maxAmountOfInterations, startPoint, lambdaMAInitValue, 1);
     % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -49,8 +49,8 @@ function [ ] = compare22( A,G,x, errorSize )
     
     
     
-    [ rozwiazanieAA,bladAA,iteracjeAA, ~] = calcAA( A,G,errorSize, 50, 1.5, 1.1);
-    [ rozwiazanieMA,bladMA,iteracjeMA, ~] = calcMA( A,G, errorSize,50, 0.4, 1.1);
+    [ rozwiazanieAA,bladAA,iteracjeAA, ~] = calcAA( A,G,errorSize, maxAmountOfInterations, startPoint, lambdaAAInitValue, lambdaDivideCoeff);
+    [ rozwiazanieMA,bladMA,iteracjeMA, ~] = calcMA( A,G,errorSize, maxAmountOfInterations, startPoint, lambdaMAInitValue, lambdaDivideCoeff);
     
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);

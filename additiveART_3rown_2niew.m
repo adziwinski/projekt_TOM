@@ -1,8 +1,8 @@
-function [ ] = additiveART_3rown_2niew( A,G,x,errorSize)
+function [ ] = additiveART_3rown_2niew( A,G,x,z,errorSize, maxAmountOfInterations, startPoint,lambdaInitValue, lambdaDivideCoeff)
 
     y = calc2(A,G,x);
     
-    [rozwiazanie,blad,iteracje, lambda] = calcAA( A,G,errorSize, 50, 1, 1);    
+    [rozwiazanie,blad,iteracje, lambda] = calcAA( A,G,errorSize, maxAmountOfInterations, startPoint, lambdaInitValue, 1);   
         % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);
@@ -43,7 +43,7 @@ function [ ] = additiveART_3rown_2niew( A,G,x,errorSize)
     
     
     
-    [rozwiazanie_1,blad_1,iteracje_1,lambda_1] = calcAA( A,G,errorSize, 50, 1.5, 1.1);
+    [rozwiazanie_1,blad_1,iteracje_1,lambda_1] = calcAA( A,G,errorSize, maxAmountOfInterations, startPoint, lambdaInitValue, lambdaDivideCoeff);
      % Rysowanie wykresu
     screenSize = get(groot,'ScreenSize');
     windowHigh = screenSize(4);

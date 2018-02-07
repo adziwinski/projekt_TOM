@@ -1,9 +1,9 @@
-function [rozwiazanie,blad,iteracje,lambdaVector] = calcAA( A,G,errorSize, maxAmountOfInterations, lambdaInitValue, lambdaDivideCoeff) 
+function [rozwiazanie,blad,iteracje,lambdaVector] = calcAA( A,G,errorSize, maxAmountOfInterations, startPoint,  lambdaInitValue,lambdaDivideCoeff) 
 
     if (size(A,2) == 2) 
-        F1 = [1.5; 1.5]; 
+        F1 = [startPoint(1); startPoint(2)]; 
     elseif (size(A,2) == 3)
-        F1 = [1.5; 1.5; 1.5];
+        F1 = [startPoint(1); startPoint(2); startPoint(3)];
     end
         
     i=1;
